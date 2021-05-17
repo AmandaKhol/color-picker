@@ -2,11 +2,21 @@ import React, { useState } from 'react';
 import '../stylesheets/components/_color-selected.scss';
 import '../stylesheets/components/_form.scss';
 import '../stylesheets/layout/_main.scss';
+import Canvas from './Canvas';
 
 const App = () => {
-  const [colorSelected, setColorSelected] = useState('#ae3f');
+  const [colorSelected, setColorSelected] = useState('#ff0000');
+  const [colorInput, setColorInput] = useState('#ff0000');
+  const [colorStartGradient, setColorStartGradient] = useState('#ff0000');
 
-  const handleChangeColor = () => {};
+  const handleColorInput = (ev) => {
+    setColorInput(ev.target.value);
+    setColorStartGradient(ev.target.value);
+  };
+  const handleColorPicker = (color) => {
+    setColorSelected(color);
+    setColorInput(color);
+  };
   return (
     <main className="main">
       <h1>Color picker</h1>
@@ -17,8 +27,8 @@ const App = () => {
           className="form__input"
           id="color-input"
           type="text"
-          value={colorSelected}
-          onChange={handleChangeColor}
+          value={colorInput}
+          onChange={handleColorInput}
           placeholder="Write the color HEX code"
         />
       </form>
@@ -26,8 +36,12 @@ const App = () => {
         className="div__color--selected"
         style={{ backgroundColor: colorSelected }}
       >
-        The color div {colorSelected}
+        The color div {colorInput}
       </div>
+      <Canvas
+        color={colorStartGradient}
+        handleColorPicker={handleColorPicker}
+      ></Canvas>
     </main>
   );
 };
