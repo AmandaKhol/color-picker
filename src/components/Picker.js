@@ -1,14 +1,13 @@
 import React from 'react';
 import '../stylesheets/components/_picker.scss';
 
-const positionTop = '10';
-const positionLeft = '0';
-
-const Picker = () => {
+const Picker = (props) => {
+  const top = props.top - 10;
+  const left = props.left - 10;
   return (
     <div
       className="picker"
-      style={{ top: `${positionTop}px`, left: `${positionLeft}px` }}
+      style={{ top: `${top}px`, left: `${left}px` }}
     ></div>
   );
 };

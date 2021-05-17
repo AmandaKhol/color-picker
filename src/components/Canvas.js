@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import '../stylesheets/components/_canvas.scss';
 import Picker from './Picker';
+import rgbToHex from '../services/rgbToHex';
 
 const height = 100;
 const width = 300;
-
-function rgbToHex(r, g, b) {
-  if (r > 255 || g > 255 || b > 255) throw 'Invalid color component';
-  return ((r << 16) | (g << 8) | b).toString(16);
-}
 
 const Canvas = (props) => {
   const canvasRef = useRef(null);
@@ -47,7 +43,7 @@ const Canvas = (props) => {
     const pixel = context.getImageData(x, y, 1, 1);
 
     const data = pixel.data;
-    const rgba =
+    /*  const rgba =
       'rgba(' +
       data[0] +
       ', ' +
@@ -56,16 +52,19 @@ const Canvas = (props) => {
       data[2] +
       ', ' +
       data[3] / 255 +
-      ')';
+      ')'; */
     const hex =
       '#' + ('000000' + rgbToHex(data[0], data[1], data[2])).slice(-6);
-    console.log({ pixel });
-    props.handleColorPicker(hex);
+    console.log(event.clientX);
+    props.handleColorPicker(hex, String(y), String(x));
   };
 
   return (
     <div className="color-panel">
-      <Picker></Picker>
+      <Picker
+        top={props.positionPicker[0]}
+        left={props.positionPicker[1]}
+      ></Picker>
       <canvas
         className="canvas"
         ref={canvasRef}
