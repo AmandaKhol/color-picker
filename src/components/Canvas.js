@@ -4,9 +4,7 @@ import Picker from './Picker';
 import '../stylesheets/components/_canvas.scss';
 import pickerDetector from '../services/pickerDetector';
 import gradientCanvasGenerator from '../services/gradientCanvas';
-
-const height = 100;
-const width = 300;
+import { heightCanvas, widthCanvas } from '../utils/constants';
 
 const Canvas = (props) => {
   const canvasRef = useRef(null);
@@ -30,8 +28,8 @@ const Canvas = (props) => {
       <canvas
         className="color__panel--canvas"
         ref={canvasRef}
-        width={String(width)}
-        height={String(height)}
+        width={String(widthCanvas)}
+        height={String(heightCanvas)}
         onClick={handleColorSelected}
       ></canvas>
     </div>

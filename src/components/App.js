@@ -27,6 +27,11 @@ const App = () => {
   const handleColorInput = (color) => {
     setColorInput(color);
     setColorStartGradient(color);
+    setColorSelected(color);
+    setPositionPicker({
+      positionX: '0',
+      positionY: '300',
+    });
   };
   const handleColorPicker = (color, x, y) => {
     setColorSelected(color);
@@ -41,7 +46,8 @@ const App = () => {
     <main className="main">
       <h1 className="title">Color picker</h1>
       <h3 className="title__h3">
-        Please, select your color using the canvas or write the HEX code
+        Please, select your color using the picker on the canvas or write the
+        HEX code
       </h3>
       <Input
         colorInput={colorInput}
