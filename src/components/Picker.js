@@ -2,8 +2,9 @@ import React from 'react';
 import '../stylesheets/components/_picker.scss';
 
 const Picker = (props) => {
-  const top = props.top - 10;
-  const left = props.left - 10;
+  const { positionX, positionY } = props.positionPicker;
+  const top = positionX - 10;
+  const left = positionY - 10;
   return (
     <div
       className="picker"
