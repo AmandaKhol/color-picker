@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import pickerDetector from '../services/pickerDetector';
 import hueCanvasGenerator from '../services/hueCanvas';
 
@@ -6,7 +7,7 @@ const Hue = (props) => {
   const canvasRef = useRef(null);
   useEffect(() => {
     hueCanvasGenerator(canvasRef);
-  });
+  }, []);
 
   const handleColorSelected = (event) => {
     const pickerData = pickerDetector(canvasRef, event);
@@ -24,3 +25,7 @@ const Hue = (props) => {
 };
 
 export default Hue;
+
+Hue.propTypes = {
+  handleColorHue: PropTypes.func,
+};

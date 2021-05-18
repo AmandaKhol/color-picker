@@ -1,0 +1,10 @@
+@import '../core/_core.scss';
+
+.color__picker {
+  margin: 50px;
+  display: flex;
+  &--selected {
+    width: 100px;
+    height: 100px;
+  }
+}

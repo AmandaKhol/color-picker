@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import '../stylesheets/components/_color-selected.scss';
-import '../stylesheets/components/_form.scss';
+import '../stylesheets/components/_color-picker.scss';
 import '../stylesheets/layout/_main.scss';
 import Canvas from './Canvas';
 import Hue from './Hue';
@@ -25,9 +24,9 @@ const App = () => {
     });
   };
 
-  const handleColorInput = (ev) => {
-    setColorInput(ev.target.value);
-    setColorStartGradient(ev.target.value);
+  const handleColorInput = (color) => {
+    setColorInput(color);
+    setColorStartGradient(color);
   };
   const handleColorPicker = (color, x, y) => {
     setColorSelected(color);
@@ -40,24 +39,28 @@ const App = () => {
 
   return (
     <main className="main">
-      <h1>Color picker</h1>
-      <p>Please, select your color using the canvas or write the HEX code</p>
+      <h1 className="title">Color picker</h1>
+      <h3 className="title__h3">
+        Please, select your color using the canvas or write the HEX code
+      </h3>
       <Input
         colorInput={colorInput}
         handleColorInput={handleColorInput}
       ></Input>
-      <div
-        className="div__color--selected"
-        style={{ backgroundColor: colorSelected }}
-      >
-        {colorInput}
-      </div>
+
       <Hue handleColorHue={handleColorHue}></Hue>
-      <Canvas
-        color={colorStartGradient}
-        handleColorPicker={handleColorPicker}
-        positionPicker={positionPicker}
-      ></Canvas>
+
+      <section className="color__picker">
+        <div
+          className="color__picker--selected"
+          style={{ backgroundColor: colorSelected }}
+        ></div>
+        <Canvas
+          color={colorStartGradient}
+          handleColorPicker={handleColorPicker}
+          positionPicker={positionPicker}
+        ></Canvas>
+      </section>
     </main>
   );
 };

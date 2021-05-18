@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../stylesheets/components/_picker.scss';
 
 const Picker = (props) => {
@@ -14,3 +15,10 @@ const Picker = (props) => {
 };
 
 export default Picker;
+
+Picker.propTypes = {
+  positionPicker: PropTypes.shape({
+    positionX: PropTypes.string,
+    positionY: PropTypes.string,
+  }),
+};

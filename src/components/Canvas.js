@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import Picker from './Picker';
 import '../stylesheets/components/_canvas.scss';
 import pickerDetector from '../services/pickerDetector';
@@ -12,7 +13,7 @@ const Canvas = (props) => {
 
   useEffect(() => {
     gradientCanvasGenerator(canvasRef, props.color);
-  });
+  }, [props.color]);
 
   const handleColorSelected = (event) => {
     const pickerData = pickerDetector(canvasRef, event);
@@ -24,10 +25,10 @@ const Canvas = (props) => {
   };
 
   return (
-    <div className="color-panel">
+    <div className="color__panel">
       <Picker positionPicker={props.positionPicker}></Picker>
       <canvas
-        className="canvas"
+        className="color__panel--canvas"
         ref={canvasRef}
         width={String(width)}
         height={String(height)}
@@ -38,3 +39,12 @@ const Canvas = (props) => {
 };
 
 export default Canvas;
+
+Canvas.propTypes = {
+  color: PropTypes.string,
+  positionPicker: PropTypes.shape({
+    positionX: PropTypes.string,
+    positionY: PropTypes.string,
+  }),
+  handleColorPicker: PropTypes.func,
+};

@@ -1,1 +1,19 @@
 @import '../core/_core.scss';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $main-text;
+}
+
+.title {
+  margin: 30px;
+  font-family: $font-title;
+  text-transform: uppercase;
+}
+.title__h3 {
+  margin: 10px;
+  font-family: $font-text;
+  font-weight: 400;
+}
