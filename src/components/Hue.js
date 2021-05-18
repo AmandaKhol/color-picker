@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import pickerDetector from '../services/pickerDetector';
 import hueCanvasGenerator from '../services/hueCanvas';
+import { heightHue, widthHue } from '../utils/constants';
 
 const Hue = (props) => {
   const canvasRef = useRef(null);
@@ -17,8 +18,8 @@ const Hue = (props) => {
     <canvas
       className="hue"
       ref={canvasRef}
-      height="30px"
-      width="300px"
+      height={'' + heightHue}
+      width={'' + widthHue}
       onClick={handleColorSelected}
     ></canvas>
   );

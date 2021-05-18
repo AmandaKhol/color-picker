@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../stylesheets/components/_color-picker.scss';
 import '../stylesheets/layout/_main.scss';
-import { heightCanvas, widthCanvas } from '../utils/constants';
+import { widthCanvas } from '../utils/constants';
 import Canvas from './Canvas';
 import Hue from './Hue';
 import Input from './Input';
