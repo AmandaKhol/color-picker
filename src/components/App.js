@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../stylesheets/components/_color-picker.scss';
 import '../stylesheets/layout/_main.scss';
+import { heightCanvas, widthCanvas } from '../utils/constants';
 import Canvas from './Canvas';
 import Hue from './Hue';
 import Input from './Input';
@@ -11,7 +12,7 @@ const App = () => {
   const [colorStartGradient, setColorStartGradient] = useState('#ff0000');
   const [positionPicker, setPositionPicker] = useState({
     positionX: '0',
-    positionY: '300',
+    positionY: '' + widthCanvas,
   });
 
   const handleColorHue = (color) => {
@@ -20,7 +21,7 @@ const App = () => {
     setColorStartGradient(color);
     setPositionPicker({
       positionX: '0',
-      positionY: '300',
+      positionY: '' + widthCanvas,
     });
   };
 
@@ -30,7 +31,7 @@ const App = () => {
     setColorSelected(color);
     setPositionPicker({
       positionX: '0',
-      positionY: '300',
+      positionY: '' + widthCanvas,
     });
   };
   const handleColorPicker = (color, x, y) => {

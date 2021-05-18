@@ -34,16 +34,16 @@ describe('change the values when color change', () => {
     );
     cy.get('.color__input--input').should('have.value', '#0300ff');
     cy.get('.picker').should('have.css', 'top', '-10px');
-    cy.get('.picker').should('have.css', 'left', '290px');
+    cy.get('.picker').should('have.css', 'left', '190px');
   });
   it('changes with gradient canvas click', () => {
     cy.visit('index.html');
-    cy.get('.color__panel--canvas').click(200, 5);
+    cy.get('.color__panel--canvas').click(100, 5);
     cy.get('.color__picker--selected').should(
       'have.css',
       'background-color',
-      'rgb(241, 80, 80)'
+      'rgb(241, 120, 120)'
     );
-    cy.get('.color__input--input').should('have.value', '#f15050');
+    cy.get('.color__input--input').should('have.value', '#f17878');
   });
 });
